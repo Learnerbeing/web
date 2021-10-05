@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>外出登记二维码信息登记</title>
+    <script>
+        window.onload = function () {
+            var oDate = document.getElementById("outDate");
+            var bDate = document.getElementById("inDate");
+            function time() {
+                let now = new Date();
+                let year = now.getFullYear();
+                let month = (now.getMonth() + 1) >= 10 ? (now.getMonth() + 1) : '0' + (now.getMonth() + 1);
+                let Day = now.getDate() >= 10 ? now.getDate() : '0' + now.getDate();
+                let Hour = now.getHours() >= 10 ? now.getHours() : '0' + now.getHours();
+                let Minutes = now.getMinutes() >= 10 ? now.getMinutes() : '0' + now.getMinutes();
+                let second = now.getSeconds() >= 10 ? now.getSeconds() : '0' + now.getSeconds();
+                return year + "-" + month + "-" + Day + " " + Hour + ":" + Minutes;
+            }
+            oDate.onclick = function () {
+                this.value = time();
+                bDate.value = time();
+                this.select();
+            };
+        }
+    </script>
+</head>
+
+<body style="text-align: center;">
+    <form id="test_form" action="Lesson2 OutSchool2.html" method="get">
+        <h4>外出登记信息</h4>
+        <table width="500" align="center">
+            <!-- 第一行 -->
+            <tr>
+                <td>离校时间</td>
+                <td>
+                    <input id="outDate" type="text" class="" name="outTime">
+                </td>
+            </tr>
+            <!-- 第二行 -->
+            <tr>
+                <td>回校时间</td>
+                <td>
+                    <input id="inDate" type="text" class="" name="inTime">
+                </td>
+            </tr>
+            <tr>
+                <td>姓名</td>
+                <td>
+                    <input name="name">
+                </td>
+            </tr>
+            <tr>
+                <td>学号</td>
+                <td>
+                    <input name="ID">
+                </td>
+            </tr>
+            <tr>
+                <td>学院</td>
+                <td>
+                    <input name="college">
+                </td>
+            </tr>
+            <tr>
+                <td>专业</td>
+                <td>
+                    <input name="major">
+                </td>
+            </tr>
+            <tr>
+                <td>班级</td>
+                <td>
+                    <input name="banji">
+                </td>
+            </tr>
+        </table>
+        <input type="submit" value="提交">
+    </form>
+</body>
+
+</html>
